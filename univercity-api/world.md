@@ -1,6 +1,6 @@
-# Database Schema
+# World Table Schema and Model Methods
 
-This document outlines the structure of the database tables, including regions, subregions, countries, states, and cities.
+This document provides details on the schema for the `world` table and describes the associated Eloquent model. It includes information on creating related tables for regions, subregions, countries, states, and cities.
 
 ## Regions Table
 
