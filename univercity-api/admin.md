@@ -35,12 +35,14 @@ Schema::create('admin', function (Blueprint $table) {
     $table->id();
     $table->string('name');
     $table->string('email')->unique();
-    $table->unsignedBigInteger('profile_color_id')->nullable();
-    $table->foreign('profile_color_id')->references('id')->on('profile_colors')->onDelete('set null');
+    $table->unsignedBigInteger('profile_color_id')->nullable(); // same the user migration
     $table->timestamp('email_verified_at')->nullable();
     $table->string('password');
     $table->enum('role', ['super_admin', 'admin', 'user'])->default('user');
     $table->timestamps();
+
+    $table->foreign('profile_color_id')
+        ->references('id')->on('profile_colors')->onDelete('set null'); // same the user migration
 });
 ```
 
