@@ -27,15 +27,34 @@
         class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         id="fruit-cards"
       ></div>
+
+      <!-- Pagination Controls -->
+      <div class="flex justify-center mt-6" id="pagination-controls"></div>
     </div>
 
     <script>
       $(document).ready(function () {
         const apiUrl =
           "https://raw.githubusercontent.com/dayas-kr-coder/CodeKeep/refs/heads/main/fruits.json";
+        const itemsPerPage = 8;
+        let currentPage = 1;
+        let totalItems = 0;
+        let fruitsData = [];
 
+        // Fetch data and initialize pagination
         $.getJSON(apiUrl, function (data) {
-          const fruitCards = data
+          fruitsData = data;
+          totalItems = data.length;
+          displayPage(currentPage);
+          setupPaginationControls();
+        });
+
+        // Display a specific page of items
+        function displayPage(page) {
+          const start = (page - 1) * itemsPerPage;
+          const end = start + itemsPerPage;
+          const paginatedItems = fruitsData.slice(start, end);
+          const fruitCards = paginatedItems
             .map(
               (fruit) => `
                 <div class="bg-white border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -70,9 +89,29 @@
             .join("");
 
           $("#fruit-cards").html(fruitCards);
-        });
+        }
+
+        // Setup pagination controls
+        function setupPaginationControls() {
+          const totalPages = Math.ceil(totalItems / itemsPerPage);
+          let controls = "";
+
+          for (let i = 1; i <= totalPages; i++) {
+            controls += `<button class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 ${
+              i === currentPage ? "bg-blue-700" : ""
+            }" onclick="displayPage(${i})">${i}</button>`;
+          }
+
+          $("#pagination-controls").html(controls);
+        }
+
+        // Change the page
+        window.displayPage = function (page) {
+          currentPage = page;
+          displayPage(currentPage);
+          setupPaginationControls();
+        };
       });
     </script>
   </body>
 </html>
-
