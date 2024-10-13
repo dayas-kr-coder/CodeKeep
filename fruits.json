@@ -1,0 +1,183 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "color": "Red",
+        "average_weight": 182,
+        "season": "Fall",
+        "image": "https://hbkonline.in/pub/media/catalog/product/a/p/apple_fruit_powder3.jpg",
+        "description": "A sweet, crunchy fruit that is great for snacking."
+    },
+    {
+        "id": 2,
+        "name": "Banana",
+        "color": "Yellow",
+        "average_weight": 118,
+        "season": "Year-round",
+        "image": "https://static.wixstatic.com/media/53e8bb_a1e88e551162485eb4ff962437300872~mv2.jpeg/v1/crop/x_0,y_105,w_1024,h_919/fill/w_560,h_560,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Banana.jpeg",
+        "description": "A soft, sweet fruit that's perfect for breakfast."
+    },
+    {
+        "id": 3,
+        "name": "Cherry",
+        "color": "Red",
+        "average_weight": 8,
+        "season": "Summer",
+        "image": "https://images.unsplash.com/photo-1528821154947-1aa3d1b74941?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNoZXJyeSUyMGZydWl0fGVufDB8fDB8fHww",
+        "description": "Small, round, and sweet, cherries are a summer delight."
+    },
+    {
+        "id": 4,
+        "name": "Date",
+        "color": "Brown",
+        "average_weight": 7,
+        "season": "Fall",
+        "image": "https://t3.ftcdn.net/jpg/01/41/20/26/360_F_141202660_U25aUuaa5tQ27PkuumfdOjKGHmJoZUUt.jpg",
+        "description": "Sweet and chewy, dates are a great source of energy."
+    },
+    {
+        "id": 5,
+        "name": "Grape",
+        "color": "Purple",
+        "average_weight": 5,
+        "season": "Summer",
+        "image": "https://img.freepik.com/premium-photo/grapes-white-background_181303-4423.jpg",
+        "description": "Juicy and sweet, grapes are perfect for snacking or making wine."
+    },
+    {
+        "id": 6,
+        "name": "Lemon",
+        "color": "Yellow",
+        "average_weight": 65,
+        "season": "Winter",
+        "image": "https://img.freepik.com/premium-photo/lemon-with-leaf-isolated-white-background_55883-445.jpg",
+        "description": "Sour and zesty, lemons are great for flavoring dishes and drinks."
+    },
+    {
+        "id": 7,
+        "name": "Mango",
+        "color": "Orange",
+        "average_weight": 200,
+        "season": "Summer",
+        "image": "https://img.freepik.com/premium-photo/mango-isolated-ripe-red-mango-white-background-fresh-fruits_531456-661.jpg",
+        "description": "Sweet and juicy, mangoes are often called the king of fruits."
+    },
+    {
+        "id": 8,
+        "name": "Orange",
+        "color": "Orange",
+        "average_weight": 131,
+        "season": "Winter",
+        "image": "https://media.istockphoto.com/id/182463420/photo/tangerine-duo-with-leafs.jpg?b=1&s=612x612&w=0&k=20&c=WnJV0iBwTxrWwsEuOTm-cwziVTnqvjNucwRe9RV1l6U=",
+        "description": "Citrusy and refreshing, oranges are packed with vitamin C."
+    },
+    {
+        "id": 9,
+        "name": "Papaya",
+        "color": "Yellow",
+        "average_weight": 500,
+        "season": "Summer",
+        "image": "https://img.freepik.com/premium-photo/ripe-papaya-fruit-isolated-white-background-full-depth-field_253984-7074.jpg",
+        "description": "Soft and sweet, papayas are great in fruit salads."
+    },
+    {
+        "id": 10,
+        "name": "Peach",
+        "color": "Pink",
+        "average_weight": 150,
+        "season": "Summer",
+        "image": "https://img.freepik.com/premium-photo/peach-isolated-white-background_88281-1751.jpg",
+        "description": "Fuzzy and sweet, peaches are a summer favorite."
+    },
+    {
+        "id": 11,
+        "name": "Pineapple",
+        "color": "Brown",
+        "average_weight": 907,
+        "season": "Year-round",
+        "image": "https://img.freepik.com/premium-photo/pineapple-isolated-white-background_253984-5776.jpg",
+        "description": "Tropical and sweet, pineapples are delicious in drinks and desserts."
+    },
+    {
+        "id": 12,
+        "name": "Raspberry",
+        "color": "Red",
+        "average_weight": 4,
+        "season": "Summer",
+        "image": "https://img.freepik.com/premium-photo/raspberries-white-background-healthy-food-concept_779330-5244.jpg",
+        "description": "Sweet and tart, raspberries are great in desserts or smoothies."
+    },
+    {
+        "id": 13,
+        "name": "Strawberry",
+        "color": "Red",
+        "average_weight": 12,
+        "season": "Spring",
+        "image": "https://img.freepik.com/premium-photo/strawberry-white-background_183352-2854.jpg?w=360",
+        "description": "Sweet and juicy, strawberries are perfect for desserts."
+    },
+    {
+        "id": 14,
+        "name": "Watermelon",
+        "color": "Green",
+        "average_weight": 9200,
+        "season": "Summer",
+        "image": "https://img.freepik.com/premium-photo/watermelon-fruit-with-cut-piece-isolated-white-background_285124-2.jpg",
+        "description": "Refreshing and hydrating, watermelons are a summer essential."
+    },
+    {
+        "id": 15,
+        "name": "Kiwi",
+        "color": "Brown",
+        "average_weight": 75,
+        "season": "Winter",
+        "image": "https://media.istockphoto.com/id/834807852/photo/whole-kiwi-fruit-and-half-kiwi-fruit-on-white.jpg?s=612x612&w=0&k=20&c=zliUVnZlYPcOxEDYef7PMmOEEODFr8FUkTYqqFVaRG8=",
+        "description": "Tart and sweet, kiwis are packed with nutrients."
+    },
+    {
+        "id": 16,
+        "name": "Blueberry",
+        "color": "Blue",
+        "average_weight": 0.5,
+        "season": "Summer",
+        "image": "https://img.freepik.com/premium-photo/fresh-blueberry-isolated-white-background-full-depth-field_253984-6646.jpg",
+        "description": "Small but mighty, blueberries are loaded with antioxidants."
+    },
+    {
+        "id": 17,
+        "name": "Pomegranate",
+        "color": "Red",
+        "average_weight": 250,
+        "season": "Fall",
+        "image": "https://img.freepik.com/premium-photo/pomegranate-isolated-white-background-full-depth-field_253984-5027.jpg",
+        "description": "Juicy seeds packed with flavor, perfect for salads or snacks."
+    },
+    {
+        "id": 18,
+        "name": "Coconut",
+        "color": "Brown",
+        "average_weight": 1500,
+        "season": "Year-round",
+        "image": "https://img.freepik.com/premium-photo/coconut-isolated-white-background_252965-356.jpg",
+        "description": "Nutty and versatile, coconuts can be used in many dishes."
+    },
+    {
+        "id": 19,
+        "name": "Tangerine",
+        "color": "Orange",
+        "average_weight": 120,
+        "season": "Winter",
+        "image": "https://img.freepik.com/premium-photo/mandarin-tangerine-citrus-fruit-isolated-white-background-full-depth-field_253984-2712.jpg",
+        "description": "Sweet and easy to peel, tangerines are great for snacking."
+    },
+    {
+        "id": 20,
+        "name": "Guava",
+        "color": "Green",
+        "average_weight": 250,
+        "season": "Year-round",
+        "image": "https://media.istockphoto.com/id/1142120856/photo/whole-and-slices-guava-fruit-with-leaves-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=NJKW8qsCkVsxmJRDm4w4iDV82hcchNlRN6V41JT7LF0=",
+        "description": "Tropical and aromatic, guavas are rich in vitamin C."
+    }
+]
+
