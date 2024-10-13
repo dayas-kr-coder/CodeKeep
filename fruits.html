@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-5">
+      <nav class="mb-8">
+        <a href="index.html" class="text-blue-600 hover:text-blue-800">
+          <i class="fas fa-arrow-left mr-2"></i>Back to Fruits
+        </a>
+      </nav>
+
+      <div id="fruitDetails" class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+        <div
+          class="overflow-hidden bg-white shadow-xl rounded-2xl dark:bg-gray-800 dark:border dark:border-gray-700"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <!-- Image Section -->
+            <div
+              class="p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900"
+            >
+              <div
+                class="relative overflow-hidden h-full bg-white rounded-xl aspect-square dark:bg-gray-700"
+              >
+                <!-- @if ($fruit->image) -->
+                <img
+                  id="fruitImage"
+                  onload="this.style.opacity='1'; this.previousElementSibling.style.display='none';"
+                  src=""
+                  alt=""
+                  class="object-cover w-full min-h-full transition-transform duration-300 hover:scale-105"
+                />
+                <!-- @else
+                              <div class="flex items-center justify-center w-full h-full bg-gray-50 dark:bg-gray-800">
+                                  <i class="text-6xl text-gray-300 fa-solid fa-image dark:text-gray-600"></i>
+                              </div>
+                          @endif -->
+              </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-8 dark:bg-gray-800">
+              <div class="space-y-6">
+                <div>
+                  <h1
+                    id="fruitName"
+                    class="text-4xl font-bold text-gray-800 dark:text-gray-100"
+                  ></h1>
+                  <div class="mt-4 space-y-2">
+                    <div
+                      class="flex items-center space-x-2 text-gray-600 dark:text-gray-300"
+                    >
+                      <i class="w-5 fas fa-palette"></i>
+                      <span class="font-medium dark:text-gray-200">Color:</span>
+                      <span id="fruitColor" class="dark:text-gray-300"></span>
+                    </div>
+                    <div
+                      class="flex items-center space-x-2 text-gray-600 dark:text-gray-300"
+                    >
+                      <i class="w-5 fas fa-weight-hanging"></i>
+                      <span class="font-medium dark:text-gray-200"
+                        >Average Weight:</span
+                      >
+                      <span id="fruitWeight" class="dark:text-gray-300">g</span>
+                    </div>
+                    <div
+                      class="flex items-center space-x-2 text-gray-600 dark:text-gray-300"
+                    >
+                      <i class="w-5 fas fa-calendar"></i>
+                      <span class="font-medium dark:text-gray-200"
+                        >Season:</span
+                      >
+                      <span id="fruitSeason" class="dark:text-gray-300"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-6 border-t border-gray-200 dark:border-gray-700">
+                  <h3
+                    class="mb-3 text-lg font-semibold text-gray-800 dark:text-gray-100"
+                  >
+                    Description
+                  </h3>
+                  <p
+                    id="fruitDescription"
+                    class="leading-relaxed text-gray-600 dark:text-gray-300"
+                  ></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorMessage" class="text-center mt-16 hidden">
+        <h1 class="text-2xl text-gray-800">Fruit not found</h1>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fruitId = urlParams.get("id");
+
+        const apiUrl =
+          "https://raw.githubusercontent.com/dayas-kr-coder/CodeKeep/refs/heads/main/fruits.json";
+
+        $.ajax({
+          url: apiUrl,
+          dataType: "json",
+          success: function (data) {
+            const fruit = data.find((f) => f.id == fruitId);
+
+            if (fruit) {
+              $("#fruitName").text(fruit.name);
+              $("#fruitImage").attr("src", fruit.image).attr("alt", fruit.name);
+              $("#fruitColor").text(fruit.color);
+              $("#fruitSeason").text(fruit.season);
+              $("#fruitWeight").text(`${fruit.average_weight}g`);
+              $("#fruitDescription").text(fruit.description);
+
+              $("#fruitDetails").removeClass("hidden");
+              $("#errorMessage").addClass("hidden");
+            } else {
+              $("#fruitDetails").addClass("hidden");
+              $("#errorMessage").removeClass("hidden");
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            $("#errorMessage")
+              .removeClass("hidden")
+              .find("h1")
+              .text("Error loading fruit data");
+            console.error(`Error fetching data: ${textStatus}, ${errorThrown}`);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
+

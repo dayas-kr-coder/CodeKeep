@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Catalog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-5">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Fruits</h2>
+      </div>
+
+      <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        id="fruit-cards"
+      ></div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        const apiUrl =
+          "https://raw.githubusercontent.com/dayas-kr-coder/CodeKeep/refs/heads/main/fruits.json";
+
+        $.getJSON(apiUrl, function (data) {
+          const fruitCards = data
+            .map(
+              (fruit) => `
+                <div class="bg-white border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <a href="fruit.html?id=${fruit.id}" class="relative block min-w-full bg-gray-200 aspect-square h-60">
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-300">
+                      <i class="text-8xl fa-solid fa-image"></i>
+                    </div>
+                    <img src="${fruit.image}" alt="${fruit.name}" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" onload="this.style.opacity='1'; this.previousElementSibling.style.display='none';">
+                  </a>
+                  <div class="p-4 space-y-3">
+                    <a href="fruit.html?id=${fruit.id}" class="text-xl font-semibold text-gray-800 truncate">
+                      ${fruit.name}
+                    </a>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-3 py-1 text-xs text-gray-600 bg-gray-100 rounded-full">
+                        <i class="text-gray-500 fa-solid fa-palette"></i>
+                        ${fruit.color}
+                      </span>
+                      <span class="px-3 py-1 text-xs text-gray-600 bg-gray-100 rounded-full">
+                        ${fruit.season}
+                      </span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-gray-600">
+                      <i class="w-4 text-sm fa-solid fa-weight-hanging"></i>
+                      <span class="text-sm">${fruit.average_weight}g</span>
+                    </div>
+                    <p class="text-sm text-gray-600 line-clamp-2">${fruit.description}</p>
+                  </div>
+                </div>
+              `
+            )
+            .join("");
+
+          $("#fruit-cards").html(fruitCards);
+        });
+      });
+    </script>
+  </body>
+</html>
+
